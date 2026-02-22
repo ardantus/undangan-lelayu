@@ -26,11 +26,11 @@ export default function TemplateSimpel({ data, url }: Props) {
             style={{
                 width: "210mm",
                 height: "297mm",
-                padding: "12mm 16mm 12mm 16mm",
+                padding: "8mm 16mm 8mm 16mm",
                 boxSizing: "border-box",
                 fontFamily: "'Times New Roman', Times, serif",
-                fontSize: "12pt",
-                lineHeight: "1.3",
+                fontSize: "11.5pt",
+                lineHeight: "1.25",
                 color: "#000",
                 background: "#fff",
                 position: "relative",
@@ -38,7 +38,7 @@ export default function TemplateSimpel({ data, url }: Props) {
             }}
         >
             {/* ===== HEADER ===== */}
-            <div style={{ textAlign: "center", marginBottom: "12pt" }}>
+            <div style={{ textAlign: "center", marginBottom: "8pt" }}>
                 <h1
                     style={{
                         fontSize: "15pt",
@@ -52,7 +52,7 @@ export default function TemplateSimpel({ data, url }: Props) {
             </div>
 
             {/* Katur Dumatheng */}
-            <div style={{ marginBottom: "16pt", fontSize: "11.5pt" }}>
+            <div style={{ marginBottom: "10pt", fontSize: "11.5pt" }}>
                 <p style={{ margin: "0 0 4pt 0" }}>Katur Dumatheng</p>
                 <div style={{ display: "flex", marginBottom: "2pt" }}>
                     <div style={{ width: "80pt" }}>Bapak / Ibu</div>
@@ -65,9 +65,9 @@ export default function TemplateSimpel({ data, url }: Props) {
             </div>
 
             {/* ===== INNALILLAHI ===== */}
-            <div style={{ textAlign: "center", marginBottom: "12pt" }}>
+            <div style={{ textAlign: "center", marginBottom: "8pt" }}>
                 <h2 style={{
-                    fontSize: "12.5pt",
+                    fontSize: "12pt",
                     fontWeight: "bold",
                     margin: 0
                 }}>
@@ -76,43 +76,43 @@ export default function TemplateSimpel({ data, url }: Props) {
             </div>
 
             {/* ===== SALAM & PEMBUKA ===== */}
-            <div style={{ marginBottom: "12pt" }}>
-                <p style={{ margin: "0 0 6pt 0", fontWeight: "bold" }}>
+            <div style={{ marginBottom: "8pt" }}>
+                <p style={{ margin: "0 0 4pt 0", fontWeight: "bold" }}>
                     Assalamu&apos;alaikum Wr. Wb.
                 </p>
-                <p style={{ margin: "0 0 6pt 0" }}>
+                <p style={{ margin: "0 0 4pt 0" }}>
                     Sampun katimbalan sowan wonten ngarsanipun ALLOH SWT Panjenenganipun :
                 </p>
             </div>
 
             {/* ===== NAMA ALMARHUM ===== */}
-            <div style={{ textAlign: "center", marginBottom: "16pt" }}>
+            <div style={{ textAlign: "center", marginBottom: "10pt" }}>
                 <h2
                     style={{
-                        fontSize: "18pt",
+                        fontSize: "16pt",
                         fontWeight: "bold",
                         textDecoration: "underline",
-                        margin: "0 0 4pt 0",
+                        margin: "0 0 2pt 0",
                     }}
                 >
                     {data.nama || "....................."}
                 </h2>
-                <p style={{ margin: "0", fontSize: "12pt", fontWeight: "bold", textDecoration: "underline" }}>
+                <p style={{ margin: "0", fontSize: "11.5pt", fontWeight: "bold", textDecoration: "underline" }}>
                     Yuswo: {data.usia || "..."} Tahun
                 </p>
             </div>
 
             {/* ===== INGKANG PIDALEM ===== */}
-            <div style={{ marginBottom: "12pt" }}>
+            <div style={{ marginBottom: "8pt" }}>
                 <p style={{ margin: 0 }}>
                     Ingkang Pidalem Wonten Ing : {data.alamatRumah || "................................................"}
                 </p>
             </div>
 
             {/* ===== SEDO RIKOLO ===== */}
-            <div style={{ marginBottom: "12pt" }}>
+            <div style={{ marginBottom: "8pt" }}>
                 <p style={{ margin: "0 0 4pt 0", fontWeight: "bold" }}>Sedo Rikolo,</p>
-                <table style={{ marginLeft: "0", fontSize: "12pt", width: "100%" }}>
+                <table style={{ marginLeft: "0", fontSize: "11.5pt", width: "100%" }}>
                     <tbody>
                         <tr>
                             <td style={{ width: "100pt", paddingBottom: "2pt" }}>Dinten</td>
@@ -143,9 +143,9 @@ export default function TemplateSimpel({ data, url }: Props) {
             </div>
 
             {/* ===== PEMAKAMAN ===== */}
-            <div style={{ marginBottom: "16pt" }}>
+            <div style={{ marginBottom: "8pt" }}>
                 <p style={{ margin: "0 0 4pt 0", fontWeight: "bold" }}>Jenazah Bade Kasareaken,</p>
-                <table style={{ marginLeft: "0", fontSize: "12pt", width: "100%" }}>
+                <table style={{ marginLeft: "0", fontSize: "11.5pt", width: "100%" }}>
                     <tbody>
                         <tr>
                             <td style={{ width: "100pt", paddingBottom: "2pt" }}>Dinten</td>
@@ -171,20 +171,20 @@ export default function TemplateSimpel({ data, url }: Props) {
             </div>
 
             {/* ===== PARAGRAF PENUTUP ===== */}
-            <p style={{ margin: "0 0 16pt 0", textAlign: "left", lineHeight: "1.4" }}>
+            <p style={{ margin: "0 0 8pt 0", textAlign: "left" }}>
                 Dumateng sanak kadang mitro pitepangan mugi pawartos lelayu puniko andadosno ing pamrikso.
             </p>
 
             {/* ===== SALAM PENUTUP ===== */}
-            <p style={{ margin: "0 0 16pt 0", fontWeight: "bold", textAlign: "left" }}>
+            <p style={{ margin: "0 0 8pt 0", fontWeight: "bold", textAlign: "left" }}>
                 Wassalamu&apos;alaikum Wr. Wb.
             </p>
 
             {/* ===== DAFTAR KELUARGA ===== */}
             <div style={{ marginTop: "0" }}>
-                <p style={{ margin: "0 0 6pt 0", fontWeight: "bold" }}>Panadhang duhkito :</p>
+                <p style={{ margin: "0 0 4pt 0", fontWeight: "bold" }}>Panadhang duhkito :</p>
                 {data.keluarga && data.keluarga.length > 0 ? (
-                    <table style={{ fontSize: "12pt", width: "100%", marginLeft: "12pt" }}>
+                    <table style={{ fontSize: "11.5pt", width: "100%", marginLeft: "12pt" }}>
                         <tbody>
                             {data.keluarga.map((k, i) => (
                                 <tr key={i}>
