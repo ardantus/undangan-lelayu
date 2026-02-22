@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { getUndangan } from "@/lib/storage";
 import ViewClient from "./ViewClient";
-import type { Metadata, ResolvingMetadata } from "next";
+import type { Metadata } from "next";
 
 interface Props {
   params: Promise<{ id: string }>;
