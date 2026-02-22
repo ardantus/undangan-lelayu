@@ -1,0 +1,38 @@
+services:
+  # Aplikasi Utama (Next.js)
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - STORAGE_TYPE=seaweedfs
+      - SEAWEEDFS_FILER_URL=http://filer:8888
+      - BLOB_READ_WRITE_TOKEN=dev_token_secret # Dummy untuk lokal
+    depends_on:
+      - filer
+
+  # SeaweedFS Master
+  master:
+    image: chrislusf/seaweedfs
+    command: "master -ip=master"
+    ports:
+      - "9333:9333"
+
+  # SeaweedFS Volume
+  volume:
+    image: chrislusf/seaweedfs
+    command: "volume -mserver=master:9333 -port=8080"
+    depends_on:
+      - master
+
+  # SeaweedFS Filer (Interface yang kita gunakan)
+  filer:
+    image: chrislusf/seaweedfs
+    command: "filer -master=master:9333"
+    ports:
+      - "8888:8888" # HTTP Interface
+      - "8333:8333" # S3 Compatible Interface
+    depends_on:
+      - master
+      - volume

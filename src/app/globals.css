@@ -21,8 +21,9 @@ body {
 
 /* Print styles */
 @media print {
+
   /* Hide everything except the template */
-  body > * {
+  body>* {
     display: none !important;
   }
 
@@ -41,11 +42,37 @@ body {
   #template-klasik {
     display: block !important;
     width: 210mm !important;
-    min-height: 297mm !important;
-    margin: 0 auto !important;
-    padding: 20mm 18mm !important;
+    height: 297mm !important;
+    margin: 0 !important;
+    padding: 12mm 18mm 10mm 18mm !important;
     box-shadow: none !important;
     page-break-after: avoid;
+    font-family: 'Times New Roman', 'Noto Serif', Georgia, serif !important;
+    font-size: 13pt !important;
+    line-height: 1.4 !important;
+    overflow: hidden !important;
+  }
+
+  #template-klasik table {
+    font-size: 13pt !important;
+  }
+
+  #template-modern {
+    display: block !important;
+    width: 210mm !important;
+    height: 297mm !important;
+    margin: 0 !important;
+    padding: 10mm 16mm !important;
+    box-shadow: none !important;
+    page-break-after: avoid;
+    font-family: 'Georgia', 'Noto Serif', 'Times New Roman', serif !important;
+    font-size: 12pt !important;
+    line-height: 1.4 !important;
+    overflow: hidden !important;
+  }
+
+  #template-modern table {
+    font-size: 12pt !important;
   }
 
   @page {

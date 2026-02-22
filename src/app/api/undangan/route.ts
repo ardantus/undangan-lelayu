@@ -8,7 +8,11 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
 
     // Validate required fields
-    const required = ["nama", "usia", "hari", "pasaran", "tanggal", "jam", "lokasi"] as const;
+    const required = [
+      "nama", "usia", "alamatRumah",
+      "hari", "pasaran", "tanggal", "jam", "lokasiDuka",
+      "hariMakam", "pasaranMakam", "tanggalMakam", "jamMakam", "lokasiMakam",
+    ] as const;
     for (const field of required) {
       if (body[field] === undefined || body[field] === null || body[field] === "") {
         return NextResponse.json(
@@ -27,12 +31,19 @@ export async function POST(req: NextRequest) {
       id,
       nama: String(body.nama),
       usia,
+      alamatRumah: String(body.alamatRumah),
       hari: String(body.hari),
       pasaran: String(body.pasaran),
       tanggal: String(body.tanggal),
       jam: String(body.jam),
-      lokasi: String(body.lokasi),
+      lokasiDuka: String(body.lokasiDuka),
+      hariMakam: String(body.hariMakam),
+      pasaranMakam: String(body.pasaranMakam),
+      tanggalMakam: String(body.tanggalMakam),
+      jamMakam: String(body.jamMakam),
+      lokasiMakam: String(body.lokasiMakam),
       keluarga: Array.isArray(body.keluarga) ? body.keluarga : [],
+      template: body.template === "modern" ? "modern" : "klasik",
       createdAt: new Date().toISOString(),
     };
     await saveUndangan(data);

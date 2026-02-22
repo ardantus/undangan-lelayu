@@ -1,6 +1,5 @@
 "use client";
 
-import { QRCodeSVG } from "qrcode.react";
 import type { UndanganData } from "@/lib/types";
 
 interface Props {
@@ -8,123 +7,225 @@ interface Props {
   url: string;
 }
 
+function formatTanggal(dateStr: string): string {
+  if (!dateStr) return "...............";
+  const d = new Date(dateStr);
+  return d.toLocaleDateString("id-ID", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
+
 export default function TemplateKlasik({ data, url }: Props) {
+  void url; // reserved for future QR usage
+
   return (
     <div
       id="template-klasik"
-      className="relative bg-white text-gray-900 font-serif"
       style={{
         width: "210mm",
-        minHeight: "297mm",
-        padding: "20mm 18mm",
+        height: "297mm",
+        padding: "12mm 18mm 10mm 18mm",
         boxSizing: "border-box",
-        fontSize: "12pt",
-        lineHeight: "1.6",
+        fontFamily: "'Times New Roman', 'Noto Serif', Georgia, serif",
+        fontSize: "13pt",
+        lineHeight: "1.4",
+        color: "#000",
+        background: "#fff",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
-      {/* Header ornament */}
-      <div className="text-center mb-6">
-        <div className="text-3xl mb-1">✦ ✦ ✦</div>
-        <div className="text-xs uppercase tracking-widest text-gray-500">
-          Innalillahi Wa Inna Ilaihi Raji&apos;un
-        </div>
+      {/* ===== HEADER ===== */}
+      <div style={{ textAlign: "center", marginBottom: "6pt" }}>
+        <h1
+          style={{
+            fontSize: "20pt",
+            fontWeight: "bold",
+            letterSpacing: "5pt",
+            margin: "0 0 6pt 0",
+          }}
+        >
+          PAWARTOS LELAYU
+        </h1>
       </div>
 
-      <hr className="border-gray-400 mb-6" />
-
-      {/* Title */}
-      <div className="text-center mb-8">
-        <h1 className="text-2xl font-bold uppercase tracking-wider mb-1">
-          Berita Duka Cita
-        </h1>
-        <p className="text-sm text-gray-600">
-          Dengan penuh keikhlasan kami menyampaikan bahwa telah berpulang ke
-          Rahmatullah
+      {/* Alamat tujuan (kanan) */}
+      <div style={{ textAlign: "right", marginBottom: "8pt" }}>
+        <p style={{ margin: 0 }}>
+          Bpk/Ibu/Sdr. .........................................
+        </p>
+        <p style={{ margin: 0 }}>
+          Wonten ing .............................................
         </p>
       </div>
 
-      {/* Almarhum name */}
-      <div className="text-center mb-8">
-        <p className="text-base text-gray-700 mb-1">Almarhum / Almarhumah</p>
-        <h2 className="text-3xl font-bold uppercase tracking-wide border-b-2 border-gray-400 inline-block pb-1 px-4">
-          {data.nama}
-        </h2>
-        <p className="mt-2 text-gray-600">Usia {data.usia} Tahun</p>
+      {/* ===== SALAM PEMBUKA + PARAGRAF JAWA ===== */}
+      <div style={{ marginBottom: "4pt" }}>
+        <p style={{ margin: "0 0 2pt 0", fontStyle: "italic" }}>
+          Assalamu&apos;alaikum Wr. Wb.
+        </p>
+        <p style={{ margin: "0 0 2pt 0", textAlign: "justify" }}>
+          Nyuwun kawigotosanipun dumateng wargo ..........
+        </p>
+        <p style={{ margin: "0 0 2pt 0", textAlign: "justify" }}>
+          Pawartos Lelayu puniko kalinten saking{" "}
+          {data.usia > 0 && Number(data.usia) >= 0 ? (
+            data.nama.toLowerCase().startsWith("ny") ||
+              data.nama.toLowerCase().startsWith("ibu") ? "Ibu" : "Bpk"
+          ) : "Bpk/Ibu"}{" "}
+          <strong>{data.nama}</strong> ingkang pidalem wonten ing dusun{" "}
+          <strong>{data.alamatRumah || ".............................................."}</strong>
+        </p>
+        <p style={{ margin: "0 0 2pt 0" }}>
+          Menggahi isinipun pawartos lelayu
+        </p>
       </div>
 
-      {/* Details */}
-      <div className="bg-gray-50 border border-gray-300 rounded p-4 mb-8">
-        <table className="w-full text-sm">
+      {/* ===== INNALILLAHI ===== */}
+      <div
+        style={{
+          textAlign: "center",
+          margin: "6pt 0",
+          fontSize: "13pt",
+          fontWeight: "bold",
+          letterSpacing: "2pt",
+        }}
+      >
+        INNALILLAHI WAINNA ILLAIHI ROJI&apos;UN
+      </div>
+
+      {/* ===== KALIMAT KAPURDHOT ===== */}
+      <p style={{ margin: "4pt 0", textAlign: "justify" }}>
+        Sampun Kapurdhot wangsul dumateng Ngarso dalem Allah SWT,
+        panjenengipun :
+      </p>
+
+      {/* ===== NAMA ALMARHUM ===== */}
+      <div style={{ textAlign: "center", margin: "8pt 0" }}>
+        <h2
+          style={{
+            fontSize: "18pt",
+            fontWeight: "bold",
+            textDecoration: "underline",
+            margin: "0 0 4pt 0",
+            letterSpacing: "2pt",
+          }}
+        >
+          {data.nama || "....................."}
+        </h2>
+        <p style={{ margin: "0", fontSize: "14pt" }}>
+          Yuswo : {data.usia || "..."} tahun
+        </p>
+      </div>
+
+      {/* ===== DETAIL WAFAT ===== */}
+      <table style={{ marginLeft: "20pt", marginBottom: "6pt", fontSize: "13pt" }}>
+        <tbody>
+          <tr>
+            <td style={{ width: "80pt", paddingRight: "8pt" }}>Dinten</td>
+            <td style={{ width: "12pt" }}>:</td>
+            <td>
+              {data.hari} {data.pasaran}
+            </td>
+          </tr>
+          <tr>
+            <td style={{ paddingRight: "8pt" }}>Tanggal</td>
+            <td>:</td>
+            <td>{formatTanggal(data.tanggal)}</td>
+          </tr>
+          <tr>
+            <td style={{ paddingRight: "8pt" }}>Jam</td>
+            <td>:</td>
+            <td>{data.jam || "--:--"} WIB</td>
+          </tr>
+          <tr>
+            <td style={{ paddingRight: "8pt" }}>Wonten</td>
+            <td>:</td>
+            <td>{data.lokasiDuka || "............."}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      {/* ===== DETAIL PEMAKAMAN ===== */}
+      <div style={{ marginBottom: "6pt" }}>
+        <p style={{ margin: "0 0 2pt 0" }}>Jenazah badhe kasareaken :</p>
+        <table style={{ marginLeft: "20pt", fontSize: "13pt" }}>
           <tbody>
             <tr>
-              <td className="py-1 pr-4 text-gray-600 w-36">Hari / Pasaran</td>
-              <td className="py-1 pr-2">:</td>
-              <td className="py-1 font-medium">
-                {data.hari}, {data.pasaran}
+              <td style={{ width: "80pt", paddingRight: "8pt" }}>Dinten</td>
+              <td style={{ width: "12pt" }}>:</td>
+              <td>
+                {data.hariMakam} {data.pasaranMakam}
               </td>
             </tr>
             <tr>
-              <td className="py-1 pr-4 text-gray-600">Tanggal</td>
-              <td className="py-1 pr-2">:</td>
-              <td className="py-1 font-medium">
-                {data.tanggal
-                  ? new Date(data.tanggal).toLocaleDateString("id-ID", {
-                      day: "numeric",
-                      month: "long",
-                      year: "numeric",
-                    })
-                  : "Pilih tanggal"}
-              </td>
+              <td style={{ paddingRight: "8pt" }}>Tanggal</td>
+              <td>:</td>
+              <td>{formatTanggal(data.tanggalMakam)}</td>
             </tr>
             <tr>
-              <td className="py-1 pr-4 text-gray-600">Pukul</td>
-              <td className="py-1 pr-2">:</td>
-              <td className="py-1 font-medium">{data.jam} WIB</td>
+              <td style={{ paddingRight: "8pt" }}>Jam</td>
+              <td>:</td>
+              <td>{data.jamMakam || "--:--"} WIB</td>
             </tr>
             <tr>
-              <td className="py-1 pr-4 text-gray-600">Lokasi</td>
-              <td className="py-1 pr-2">:</td>
-              <td className="py-1 font-medium">{data.lokasi}</td>
+              <td style={{ paddingRight: "8pt" }}>Ing Makam</td>
+              <td>:</td>
+              <td>{data.lokasiMakam || "............."}</td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      {/* Family */}
-      {data.keluarga.length > 0 && (
-        <div className="mb-8">
-          <p className="text-sm text-gray-600 mb-2 font-semibold uppercase tracking-wide">
-            Yang Ditinggalkan:
-          </p>
-          <ul className="list-none pl-0 space-y-1">
-            {data.keluarga.map((k, i) => (
-              <li key={i} className="text-sm text-gray-800">
-                {k}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      {/* ===== PARAGRAF PENUTUP ===== */}
+      <p style={{ margin: "6pt 0", textAlign: "justify" }}>
+        Kanthi pawartos lelayu meniko, dumateng Bpk/Ibu/Sederek sedaya kasuwun
+        paring panjurung do&apos;a saha paring pakurmatan ingkang pungkasan
+        dumateng Almarhum.
+      </p>
 
-      {/* Closing */}
-      <div className="text-center mt-8 mb-4">
-        <p className="text-sm text-gray-600 italic">
-          &ldquo;Semoga Allah SWT menerima segala amal ibadahnya dan memberikan
-          kelapangan di alam barzah.&rdquo;
-        </p>
-      </div>
+      {/* ===== SALAM PENUTUP ===== */}
+      <p style={{ margin: "4pt 0 8pt 0" }}>
+        <em>Wassalamu&apos;alaikum Wr. Wb.</em>
+      </p>
 
-      <hr className="border-gray-300 mt-4" />
-
-      {/* QR Code */}
-      <div className="absolute bottom-8 right-8 flex flex-col items-center">
-        <QRCodeSVG value={url} size={72} />
-        <p className="text-xs text-gray-400 mt-1">Scan untuk detail</p>
-      </div>
-
-      {/* Footer */}
-      <div className="absolute bottom-8 left-8 text-xs text-gray-400">
-        <p>ID: {data.id}</p>
+      {/* ===== DAFTAR KELUARGA ===== */}
+      <div style={{ marginTop: "4pt" }}>
+        <p style={{ margin: "0 0 4pt 0" }}>Ingkang nandang sungkowo :</p>
+        {data.keluarga && data.keluarga.length > 0 ? (
+          <table style={{ fontSize: "13pt", width: "100%" }}>
+            <tbody>
+              {data.keluarga.map((k, i) => (
+                <tr key={i}>
+                  <td style={{ width: "20pt", verticalAlign: "top" }}>
+                    {i + 1}.
+                  </td>
+                  <td style={{ verticalAlign: "top" }}>
+                    {typeof k === "string" ? k : k.nama}
+                  </td>
+                  <td
+                    style={{
+                      textAlign: "right",
+                      verticalAlign: "top",
+                      paddingLeft: "16pt",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    ( {typeof k === "string" ? "" : k.hubungan} )
+                  </td>
+                </tr>
+              ))}
+              <tr>
+                <td>{data.keluarga.length + 1}.</td>
+                <td colSpan={2}>Segenap Keluarga</td>
+              </tr>
+            </tbody>
+          </table>
+        ) : (
+          <p style={{ marginLeft: "20pt" }}>1. Segenap Keluarga</p>
+        )}
       </div>
     </div>
   );

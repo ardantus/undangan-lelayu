@@ -1,8 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import TemplateKlasik from "@/components/TemplateKlasik";
+import dynamic from "next/dynamic";
 import type { UndanganData } from "@/lib/types";
+
+const TemplateKlasik = dynamic(() => import("@/components/TemplateKlasik"), {
+  ssr: false,
+});
+
+const TemplateModern = dynamic(() => import("@/components/TemplateModern"), {
+  ssr: false,
+});
 
 interface Props {
   data: UndanganData;
@@ -10,6 +18,9 @@ interface Props {
 }
 
 export default function ViewClient({ data, url }: Props) {
+  const SelectedTemplate =
+    data.template === "modern" ? TemplateModern : TemplateKlasik;
+
   return (
     <>
       {/* Toolbar - hidden when printing */}
@@ -30,7 +41,7 @@ export default function ViewClient({ data, url }: Props) {
 
       {/* Print area */}
       <div className="print-area flex justify-center bg-gray-200 min-h-screen py-6">
-        <TemplateKlasik data={data} url={url} />
+        <SelectedTemplate data={data} url={url} />
       </div>
     </>
   );
