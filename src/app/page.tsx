@@ -163,9 +163,9 @@ export default function HomePage() {
           keluarga: keluarga.filter((k) => k.nama),
         }),
       });
-      if (!res.ok) throw new Error("Gagal menyimpan");
-      const { id } = await res.json();
-      router.push(`/v/${id}`);
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Gagal menyimpan");
+      router.push(`/v/${data.id}`);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Terjadi kesalahan");
     } finally {

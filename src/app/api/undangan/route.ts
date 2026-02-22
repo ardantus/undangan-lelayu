@@ -48,9 +48,10 @@ export async function POST(req: NextRequest) {
     };
     await saveUndangan(data);
     return NextResponse.json({ id });
-  } catch (err) {
+  } catch (err: unknown) {
     console.error(err);
-    return NextResponse.json({ error: "Gagal menyimpan data" }, { status: 500 });
+    const message = err instanceof Error ? err.message : "Gagal menyimpan data";
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }
 
@@ -65,8 +66,9 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ error: "Data tidak ditemukan" }, { status: 404 });
     }
     return NextResponse.json(data);
-  } catch (err) {
+  } catch (err: unknown) {
     console.error(err);
-    return NextResponse.json({ error: "Gagal mengambil data" }, { status: 500 });
+    const message = err instanceof Error ? err.message : "Gagal mengambil data";
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

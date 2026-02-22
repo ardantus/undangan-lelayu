@@ -45,6 +45,19 @@ A specialized web application designed to generate traditional Javanese obituary
     npm run dev
     ```
 
+## �️ Storage Configuration
+
+Aplikasi ini mendukung dua jenis penyimpanan file undangan (`.json`): **SeaweedFS** (lokal) dan **Vercel Blob** (cloud).
+
+### 1. Mode Lokal (Docker / SeaweedFS)
+Secara default, jika Anda menggunakan `docker compose up -d --build`, aplikasi akan otomatis menggunakan SeaweedFS lokal karena opsi `STORAGE_TYPE=seaweedfs` telah ditetapkan pada `docker-compose.yml`. Anda tidak perlu konfigurasi tambahan.
+
+### 2. Mode Produksi (Vercel Blob)
+Jika Anda men-deploy aplikasi ini ke **Vercel**, sistem akan otomatis menggunakan **Vercel Blob**.
+Anda **wajib** menambahkan token berikut ke *Environment Variables* di dashboard Vercel Anda:
+`BLOB_READ_WRITE_TOKEN="vercel_blob_rw_xxxxx_xxxxxxxxx"`
+(Anda dapat membuat/melihat token ini dari menu *Storage* -> *Vercel Blob* di dashboard proyek Anda).
+
 ## 📜 License
 
-MIT
+Apache License 2.0
