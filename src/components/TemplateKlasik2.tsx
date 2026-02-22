@@ -26,19 +26,22 @@ export default function TemplateKlasik2({ data, url }: Props) {
             style={{
                 width: "210mm",
                 height: "297mm",
-                padding: "8mm 16mm 8mm 16mm",
+                padding: "20mm 20mm",
                 boxSizing: "border-box",
                 fontFamily: "'Times New Roman', Times, serif",
-                fontSize: "11.5pt",
-                lineHeight: "1.25",
+                fontSize: "12pt",
+                lineHeight: "1.4",
                 color: "#000",
                 background: "#fff",
                 position: "relative",
                 overflow: "hidden",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
             }}
         >
             {/* ===== HEADER ===== */}
-            <div style={{ textAlign: "center", marginBottom: "8pt" }}>
+            <div style={{ textAlign: "center", marginBottom: 0 }}>
                 <h1
                     style={{
                         fontSize: "15pt",
@@ -53,7 +56,7 @@ export default function TemplateKlasik2({ data, url }: Props) {
             </div>
 
             {/* Katur Dumatheng */}
-            <div style={{ marginBottom: "10pt", fontSize: "11.5pt", display: "flex", justifyContent: "flex-end" }}>
+            <div style={{ marginBottom: 0, fontSize: "11.5pt", display: "flex", justifyContent: "flex-end" }}>
                 <div style={{ width: "200pt" }}>
                     <p style={{ margin: "0 0 2pt 0" }}>Katur Dumateng : .....................</p>
                     <p style={{ margin: "2pt 0 2pt 0" }}>................................................</p>
@@ -62,12 +65,12 @@ export default function TemplateKlasik2({ data, url }: Props) {
             </div>
 
             {/* ===== SALAM ======= */}
-            <div style={{ textAlign: "center", marginBottom: "8pt", fontWeight: "bold" }}>
+            <div style={{ textAlign: "center", marginBottom: 0, fontWeight: "bold" }}>
                 Assalamu&apos;alaikum Wr. Wb
             </div>
 
             {/* ===== PARAGRAF PEMBUKA ======= */}
-            <div style={{ marginBottom: "8pt" }}>
+            <div style={{ marginBottom: 0 }}>
                 <p style={{ margin: "0 0 2pt 0", textAlign: "justify" }}>
                     Pawartos lelayu meniko kakintun saking{" "}
                     {data.namaPengirim ? (
@@ -86,7 +89,7 @@ export default function TemplateKlasik2({ data, url }: Props) {
             </div>
 
             {/* ===== INNALILLAHI ===== */}
-            <div style={{ textAlign: "center", marginBottom: "8pt" }}>
+            <div style={{ textAlign: "center", marginBottom: 0 }}>
                 <h2 style={{
                     fontSize: "12.5pt",
                     fontWeight: "bold",
@@ -97,14 +100,14 @@ export default function TemplateKlasik2({ data, url }: Props) {
                 </h2>
             </div>
 
-            <div style={{ marginBottom: "8pt" }}>
+            <div style={{ marginBottom: 0 }}>
                 <p style={{ margin: "0 0 4pt 0" }}>
                     Sampun katimbalan sowan wonten ngarso dalem Allah SWT, Panjenenganipun :
                 </p>
             </div>
 
             {/* ===== NAMA ALMARHUM ===== */}
-            <div style={{ textAlign: "center", marginBottom: "10pt" }}>
+            <div style={{ textAlign: "center", marginBottom: 0 }}>
                 <h2
                     style={{
                         fontSize: "16pt",
@@ -122,7 +125,7 @@ export default function TemplateKlasik2({ data, url }: Props) {
             </div>
 
             {/* ===== SEDO RIKOLO ===== */}
-            <div style={{ marginBottom: "8pt" }}>
+            <div style={{ marginBottom: 0 }}>
                 <p style={{ margin: "0 0 4pt 0" }}>Sedo rikolo :</p>
                 <table style={{ marginLeft: "0", fontSize: "11.5pt", width: "100%" }}>
                     <tbody>
@@ -155,7 +158,7 @@ export default function TemplateKlasik2({ data, url }: Props) {
             </div>
 
             {/* ===== PEMAKAMAN ===== */}
-            <div style={{ marginBottom: "8pt" }}>
+            <div style={{ marginBottom: 0 }}>
                 <p style={{ margin: "0 0 4pt 0" }}>Jenazah badhe kasarekaken :</p>
                 <table style={{ marginLeft: "0", fontSize: "11.5pt", width: "100%" }}>
                     <tbody>
@@ -188,17 +191,17 @@ export default function TemplateKlasik2({ data, url }: Props) {
             </div>
 
             {/* ===== PARAGRAF PENUTUP ===== */}
-            <p style={{ margin: "0 0 8pt 0", textAlign: "justify" }}>
+            <p style={{ margin: 0, textAlign: "justify" }}>
                 Saking sedaya keluarga duka ngantu-antu kerawuhan panjenengan sami saperlu paring pakurmatan ingkang pungkasan dateng almarhum. Mekaten pawartos lelayumenika kula aturaken, mugi andadosna ing pamriksa.
             </p>
 
             {/* ===== SALAM PENUTUP ===== */}
-            <div style={{ textAlign: "center", marginBottom: "12pt", fontWeight: "bold" }}>
+            <div style={{ textAlign: "center", marginBottom: 0, fontWeight: "bold" }}>
                 Wassalamu&apos;alaikum Wr. Wb.
             </div>
 
             {/* ===== DAFTAR KELUARGA ===== */}
-            <div style={{ marginTop: "0" }}>
+            <div style={{ marginTop: "0", marginBottom: 0 }}>
                 <p style={{ margin: "0 0 4pt 0" }}>Ingkang nandang dukito :</p>
                 {data.keluarga && data.keluarga.length > 0 ? (
                     <table style={{ fontSize: "11.5pt", width: "100%", marginLeft: "20pt" }}>
