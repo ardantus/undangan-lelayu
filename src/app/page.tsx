@@ -18,6 +18,14 @@ const TemplateIndo = dynamic(() => import("@/components/TemplateIndo"), {
   ssr: false,
 });
 
+const TemplateSimpel = dynamic(() => import("@/components/TemplateSimpel"), {
+  ssr: false,
+});
+
+const TemplateKlasik2 = dynamic(() => import("@/components/TemplateKlasik2"), {
+  ssr: false,
+});
+
 const HARI = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"];
 
 interface FormState {
@@ -35,7 +43,7 @@ interface FormState {
   tanggalMakam: string;
   jamMakam: string;
   lokasiMakam: string;
-  template: "klasik" | "modern" | "indo";
+  template: "klasik" | "modern" | "indo" | "simpel" | "klasik2";
 }
 
 const emptyForm: FormState = {
@@ -527,6 +535,10 @@ export default function HomePage() {
                     <TemplateModern data={previewData} url={previewUrl} />
                   ) : form.template === "indo" ? (
                     <TemplateIndo data={previewData} url={previewUrl} />
+                  ) : form.template === "simpel" ? (
+                    <TemplateSimpel data={previewData} url={previewUrl} />
+                  ) : form.template === "klasik2" ? (
+                    <TemplateKlasik2 data={previewData} url={previewUrl} />
                   ) : (
                     <TemplateKlasik data={previewData} url={previewUrl} />
                   )}
