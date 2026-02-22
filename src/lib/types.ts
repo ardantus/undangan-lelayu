@@ -22,7 +22,7 @@ export interface UndanganData {
   jamMakam: string;
   lokasiMakam: string;   // Nama makam
   // Template
-  template: "klasik" | "modern";
+  template: "klasik" | "modern" | "indo";
   // Keluarga
   keluarga: KeluargaEntry[];
   createdAt: string;
@@ -34,4 +34,5 @@ export type Pasaran = (typeof PASARAN)[number];
 export const TEMPLATES = [
   { id: "klasik" as const, label: "Klasik", desc: "Tampilan polos tradisional" },
   { id: "modern" as const, label: "Modern", desc: "Dengan border dekoratif" },
+  { id: "indo" as const, label: "Berita Lelayu (Indo)", desc: "Sesuai format Bahasa Indonesia umum" },
 ] as const;

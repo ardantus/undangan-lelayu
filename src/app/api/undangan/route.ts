@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
       lokasiMakam: String(body.lokasiMakam),
       namaPengirim: body.namaPengirim ? String(body.namaPengirim) : undefined,
       keluarga: Array.isArray(body.keluarga) ? body.keluarga : [],
-      template: body.template === "modern" ? "modern" : "klasik",
+      template: body.template === "modern" ? "modern" : body.template === "indo" ? "indo" : "klasik",
       createdAt: new Date().toISOString(),
     };
     await saveUndangan(data);
