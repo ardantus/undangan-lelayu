@@ -70,16 +70,23 @@ export default function TemplateKlasik({ data, url }: Props) {
           Nyuwun kawigotosanipun dumateng wargo ..........
         </p>
         <p style={{ margin: "0 0 2pt 0", textAlign: "justify" }}>
-          Pawartos Lelayu puniko kalinten saking{" "}
-          {data.usia > 0 && Number(data.usia) >= 0 ? (
-            data.nama.toLowerCase().startsWith("ny") ||
-              data.nama.toLowerCase().startsWith("ibu") ? "Ibu" : "Bpk"
-          ) : "Bpk/Ibu"}{" "}
-          <strong>{data.nama}</strong> ingkang pidalem wonten ing dusun{" "}
+          Pawartos Lelayu puniko kakintun saking{" "}
+          {data.namaPengirim ? (
+            <strong>{data.namaPengirim}</strong>
+          ) : (
+            <>
+              {data.usia > 0 && Number(data.usia) >= 0 ? (
+                data.nama.toLowerCase().startsWith("ny") ||
+                  data.nama.toLowerCase().startsWith("ibu") ? "Ibu" : "Bpk"
+              ) : "Bpk/Ibu"}{" "}
+              <strong>{data.nama}</strong>
+            </>
+          )}{" "}
+          ingkang pidalem wonten ing dusun{" "}
           <strong>{data.alamatRumah || ".............................................."}</strong>
         </p>
         <p style={{ margin: "0 0 2pt 0" }}>
-          Menggahi isinipun pawartos lelayu
+          Menggah isinipun pawartos lelayu
         </p>
       </div>
 
@@ -96,10 +103,10 @@ export default function TemplateKlasik({ data, url }: Props) {
         INNALILLAHI WAINNA ILLAIHI ROJI&apos;UN
       </div>
 
-      {/* ===== KALIMAT KAPURDHOT ===== */}
+      {/* ===== KALIMAT KAPUNDHUT ===== */}
       <p style={{ margin: "4pt 0", textAlign: "justify" }}>
-        Sampun Kapurdhot wangsul dumateng Ngarso dalem Allah SWT,
-        panjenengipun :
+        Sampun Kapundhut wangsul dumateng Ngarso dalem Allah SWT,
+        panjenenganipun :
       </p>
 
       {/* ===== NAMA ALMARHUM ===== */}

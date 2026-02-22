@@ -6,6 +6,7 @@ export interface KeluargaEntry {
 export interface UndanganData {
   id: string;
   nama: string;
+  namaPengirim?: string; // Nama yang mengirim surat
   usia: number;
   alamatRumah: string;   // Alamat lengkap almarhum (dusun, RT/RW, desa, kec, kab)
   // Info wafat

@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
 
     // Validate required fields
     const required = [
-      "nama", "usia", "alamatRumah",
+      "nama", "namaPengirim", "usia", "alamatRumah",
       "hari", "pasaran", "tanggal", "jam", "lokasiDuka",
       "hariMakam", "pasaranMakam", "tanggalMakam", "jamMakam", "lokasiMakam",
     ] as const;
@@ -42,6 +42,7 @@ export async function POST(req: NextRequest) {
       tanggalMakam: String(body.tanggalMakam),
       jamMakam: String(body.jamMakam),
       lokasiMakam: String(body.lokasiMakam),
+      namaPengirim: body.namaPengirim ? String(body.namaPengirim) : undefined,
       keluarga: Array.isArray(body.keluarga) ? body.keluarga : [],
       template: body.template === "modern" ? "modern" : "klasik",
       createdAt: new Date().toISOString(),

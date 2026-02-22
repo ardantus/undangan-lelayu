@@ -18,6 +18,7 @@ const HARI = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"];
 
 interface FormState {
   nama: string;
+  namaPengirim: string;
   usia: string;
   alamatRumah: string;
   hari: string;
@@ -35,6 +36,7 @@ interface FormState {
 
 const emptyForm: FormState = {
   nama: "",
+  namaPengirim: "",
   usia: "",
   alamatRumah: "",
   hari: HARI[5], // Sabtu
@@ -84,6 +86,7 @@ export default function HomePage() {
   const previewData: UndanganData = {
     id: "preview",
     nama: form.nama || "Nyai. PAIJEM / MONTOREJO",
+    namaPengirim: form.namaPengirim || "Kel. Bpk. Sugeng / Segenap Keluarga",
     usia: Number(form.usia) || 78,
     alamatRumah:
       form.alamatRumah ||
@@ -225,6 +228,21 @@ export default function HomePage() {
                     placeholder="Contoh: Nyai. PAIYEM / MITROREJO"
                     className={inputClass}
                   />
+                </div>
+
+                {/* Nama Pengirim */}
+                <div>
+                  <label className={labelClass}>Nama Pengirim Surat Lelayu *</label>
+                  <input
+                    type="text"
+                    name="namaPengirim"
+                    value={form.namaPengirim}
+                    onChange={handleChange}
+                    required
+                    placeholder="Contoh: Kel. Bpk. Sugeng / Segenap Keluarga"
+                    className={inputClass}
+                  />
+                  <p className="text-xs text-gray-500 mt-1">Yang mengirim surat lelayu saking ingkang pidalem</p>
                 </div>
 
                 {/* Usia */}
