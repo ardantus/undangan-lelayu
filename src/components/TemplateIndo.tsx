@@ -26,11 +26,11 @@ export default function TemplateIndo({ data, url }: Props) {
             style={{
                 width: "210mm",
                 height: "297mm",
-                padding: "16mm 20mm 16mm 20mm",
+                padding: "12mm 16mm 12mm 16mm",
                 boxSizing: "border-box",
                 fontFamily: "'Times New Roman', Times, serif",
-                fontSize: "13pt",
-                lineHeight: "1.5",
+                fontSize: "12.5pt",
+                lineHeight: "1.3",
                 color: "#000",
                 background: "#fff",
                 position: "relative",
@@ -38,7 +38,7 @@ export default function TemplateIndo({ data, url }: Props) {
             }}
         >
             {/* ===== HEADER ===== */}
-            <div style={{ textAlign: "center", marginBottom: "8pt" }}>
+            <div style={{ textAlign: "center", marginBottom: "6pt" }}>
                 <h1
                     style={{
                         fontSize: "18pt",
@@ -56,7 +56,7 @@ export default function TemplateIndo({ data, url }: Props) {
             </div>
 
             {/* Kepada yg terhormat */}
-            <div style={{ marginTop: "12pt", marginBottom: "16pt" }}>
+            <div style={{ marginTop: "8pt", marginBottom: "12pt" }}>
                 <p style={{ margin: 0 }}>Kepada :</p>
                 <p style={{ margin: "4pt 0 0 0" }}>...........................................................</p>
                 <p style={{ margin: "4pt 0 0 0" }}>...........................................................</p>
@@ -66,7 +66,7 @@ export default function TemplateIndo({ data, url }: Props) {
             <div
                 style={{
                     textAlign: "center",
-                    margin: "16pt 0 20pt 0",
+                    margin: "12pt 0 16pt 0",
                 }}
             >
                 <p
@@ -93,12 +93,12 @@ export default function TemplateIndo({ data, url }: Props) {
             </div>
 
             {/* ===== KALIMAT KAPUNDHUT ===== */}
-            <p style={{ margin: "10pt 0", textAlign: "left" }}>
+            <p style={{ margin: "8pt 0", textAlign: "left" }}>
                 Telah meninggal dunia dengan tenang :
             </p>
 
             {/* ===== NAMA ALMARHUM ===== */}
-            <div style={{ textAlign: "center", margin: "16pt 0 24pt 0" }}>
+            <div style={{ textAlign: "center", margin: "12pt 0 16pt 0" }}>
                 <h2
                     style={{
                         fontSize: "18pt",
@@ -117,7 +117,7 @@ export default function TemplateIndo({ data, url }: Props) {
             </div>
 
             {/* ===== DETAIL WAFAT ===== */}
-            <table style={{ marginLeft: "40pt", marginBottom: "20pt", fontSize: "13pt" }}>
+            <table style={{ marginLeft: "40pt", marginBottom: "16pt", fontSize: "13pt" }}>
                 <tbody>
                     <tr>
                         <td style={{ width: "90pt", paddingBottom: "4pt" }}>Pada Hari</td>
@@ -150,7 +150,7 @@ export default function TemplateIndo({ data, url }: Props) {
             </table>
 
             {/* ===== DETAIL PEMAKAMAN ===== */}
-            <div style={{ marginBottom: "24pt" }}>
+            <div style={{ marginBottom: "16pt" }}>
                 <p style={{ margin: "0 0 6pt 0" }}>Jenazah akan dimakamkan pada :</p>
                 <table style={{ marginLeft: "40pt", fontSize: "13pt" }}>
                     <tbody>
@@ -183,12 +183,12 @@ export default function TemplateIndo({ data, url }: Props) {
             </div>
 
             {/* ===== PARAGRAF PENUTUP ===== */}
-            <p style={{ margin: "16pt 0", textAlign: "left" }}>
+            <p style={{ margin: "12pt 0", textAlign: "left" }}>
                 Berita lelayu ini mohon disebarluaskan kepada sanak keluarga /sahabat handaitaulan
             </p>
 
             {/* ===== DAFTAR KELUARGA ===== */}
-            <div style={{ marginTop: "40pt", display: "flex", justifyContent: "center" }}>
+            <div style={{ marginTop: "16pt", display: "flex", justifyContent: "center" }}>
                 <div style={{ width: "70%" }}>
                     <p style={{ margin: "0 0 8pt 0" }}>Kami yang berduka cita :</p>
                     {data.keluarga && data.keluarga.length > 0 ? (
@@ -196,10 +196,10 @@ export default function TemplateIndo({ data, url }: Props) {
                             <tbody>
                                 {data.keluarga.map((k, i) => (
                                     <tr key={i}>
-                                        <td style={{ width: "20pt", verticalAlign: "top", paddingBottom: "4pt" }}>
+                                        <td style={{ width: "20pt", verticalAlign: "top", paddingBottom: "2pt" }}>
                                             {i + 1}.
                                         </td>
-                                        <td style={{ verticalAlign: "top", paddingBottom: "4pt" }}>
+                                        <td style={{ verticalAlign: "top", paddingBottom: "2pt" }}>
                                             {typeof k === "string" ? k : k.nama}
                                         </td>
                                         <td
@@ -208,7 +208,7 @@ export default function TemplateIndo({ data, url }: Props) {
                                                 verticalAlign: "top",
                                                 paddingLeft: "16pt",
                                                 whiteSpace: "nowrap",
-                                                paddingBottom: "4pt"
+                                                paddingBottom: "2pt"
                                             }}
                                         >
                                             ( {typeof k === "string" ? "" : k.hubungan} )
@@ -216,8 +216,8 @@ export default function TemplateIndo({ data, url }: Props) {
                                     </tr>
                                 ))}
                                 <tr>
-                                    <td style={{ verticalAlign: "top", paddingTop: "4pt" }}>{data.keluarga.length + 1}.</td>
-                                    <td colSpan={2} style={{ verticalAlign: "top", paddingTop: "4pt" }}>Dan Segenap Keluarga</td>
+                                    <td style={{ verticalAlign: "top", paddingTop: "2pt" }}>{data.keluarga.length + 1}.</td>
+                                    <td colSpan={2} style={{ verticalAlign: "top", paddingTop: "2pt" }}>Dan Segenap Keluarga</td>
                                 </tr>
                             </tbody>
                         </table>
