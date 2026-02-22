@@ -25,7 +25,6 @@ export async function saveUndangan(data: UndanganData): Promise<void> {
     }
     await put(`undangan/${data.id}.json`, json, {
       contentType: "application/json",
-      // @ts-ignore
       access: "public",
     });
   }
