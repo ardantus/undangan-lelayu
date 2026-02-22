@@ -26,11 +26,11 @@ export default function TemplateKlasik2({ data, url }: Props) {
             style={{
                 width: "210mm",
                 height: "297mm",
-                padding: "16mm 20mm 16mm 20mm",
+                padding: "12mm 16mm 12mm 16mm",
                 boxSizing: "border-box",
                 fontFamily: "'Times New Roman', Times, serif",
-                fontSize: "12.5pt",
-                lineHeight: "1.4",
+                fontSize: "12pt",
+                lineHeight: "1.3",
                 color: "#000",
                 background: "#fff",
                 position: "relative",
@@ -38,10 +38,10 @@ export default function TemplateKlasik2({ data, url }: Props) {
             }}
         >
             {/* ===== HEADER ===== */}
-            <div style={{ textAlign: "center", marginBottom: "16pt" }}>
+            <div style={{ textAlign: "center", marginBottom: "12pt" }}>
                 <h1
                     style={{
-                        fontSize: "16pt",
+                        fontSize: "15pt",
                         fontWeight: "bold",
                         letterSpacing: "1pt",
                         margin: "0 0 8pt 0",
@@ -53,21 +53,21 @@ export default function TemplateKlasik2({ data, url }: Props) {
             </div>
 
             {/* Katur Dumatheng */}
-            <div style={{ marginBottom: "20pt", fontSize: "12pt", display: "flex", justifyContent: "flex-end" }}>
+            <div style={{ marginBottom: "16pt", fontSize: "11.5pt", display: "flex", justifyContent: "flex-end" }}>
                 <div style={{ width: "200pt" }}>
-                    <p style={{ margin: "0 0 4pt 0" }}>Katur Dumateng : .....................</p>
-                    <p style={{ margin: "4pt 0 4pt 0" }}>................................................</p>
-                    <p style={{ margin: "4pt 0 0 0" }}>................................................</p>
+                    <p style={{ margin: "0 0 2pt 0" }}>Katur Dumateng : .....................</p>
+                    <p style={{ margin: "2pt 0 2pt 0" }}>................................................</p>
+                    <p style={{ margin: "2pt 0 0 0" }}>................................................</p>
                 </div>
             </div>
 
             {/* ===== SALAM ======= */}
-            <div style={{ textAlign: "center", marginBottom: "12pt", fontWeight: "bold" }}>
+            <div style={{ textAlign: "center", marginBottom: "10pt", fontWeight: "bold" }}>
                 Assalamu&apos;alaikum Wr. Wb
             </div>
 
             {/* ===== PARAGRAF PEMBUKA ======= */}
-            <div style={{ marginBottom: "16pt" }}>
+            <div style={{ marginBottom: "12pt" }}>
                 <p style={{ margin: "0 0 2pt 0", textAlign: "justify" }}>
                     Pawartos lelayu meniko kakintun saking{" "}
                     {data.namaPengirim ? (
@@ -86,9 +86,9 @@ export default function TemplateKlasik2({ data, url }: Props) {
             </div>
 
             {/* ===== INNALILLAHI ===== */}
-            <div style={{ textAlign: "center", marginBottom: "16pt" }}>
+            <div style={{ textAlign: "center", marginBottom: "12pt" }}>
                 <h2 style={{
-                    fontSize: "13pt",
+                    fontSize: "12.5pt",
                     fontWeight: "bold",
                     fontStyle: "italic",
                     margin: 0
@@ -97,17 +97,17 @@ export default function TemplateKlasik2({ data, url }: Props) {
                 </h2>
             </div>
 
-            <div style={{ marginBottom: "16pt" }}>
-                <p style={{ margin: "0 0 8pt 0" }}>
+            <div style={{ marginBottom: "12pt" }}>
+                <p style={{ margin: "0 0 6pt 0" }}>
                     Sampun katimbalan sowan wonten ngarso dalem Allah SWT, Panjenenganipun :
                 </p>
             </div>
 
             {/* ===== NAMA ALMARHUM ===== */}
-            <div style={{ textAlign: "center", marginBottom: "20pt" }}>
+            <div style={{ textAlign: "center", marginBottom: "16pt" }}>
                 <h2
                     style={{
-                        fontSize: "18pt",
+                        fontSize: "17pt",
                         fontWeight: "bold",
                         textDecoration: "underline",
                         textTransform: "uppercase",
@@ -116,37 +116,37 @@ export default function TemplateKlasik2({ data, url }: Props) {
                 >
                     {data.nama || "....................."}
                 </h2>
-                <p style={{ margin: "0", fontSize: "14pt", fontWeight: "bold" }}>
+                <p style={{ margin: "0", fontSize: "13pt", fontWeight: "bold" }}>
                     Yuswo: {data.usia || "..."} tahun
                 </p>
             </div>
 
             {/* ===== SEDO RIKOLO ===== */}
-            <div style={{ marginBottom: "16pt" }}>
-                <p style={{ margin: "0 0 6pt 0" }}>Sedo rikolo :</p>
-                <table style={{ marginLeft: "0", fontSize: "12.5pt", width: "100%" }}>
+            <div style={{ marginBottom: "12pt" }}>
+                <p style={{ margin: "0 0 4pt 0" }}>Sedo rikolo :</p>
+                <table style={{ marginLeft: "0", fontSize: "12pt", width: "100%" }}>
                     <tbody>
                         <tr>
-                            <td style={{ width: "80pt", paddingBottom: "4pt" }}>Dinten</td>
-                            <td style={{ width: "16pt", paddingBottom: "4pt" }}>:</td>
-                            <td style={{ paddingBottom: "4pt" }}>
+                            <td style={{ width: "80pt", paddingBottom: "2pt" }}>Dinten</td>
+                            <td style={{ width: "16pt", paddingBottom: "2pt" }}>:</td>
+                            <td style={{ paddingBottom: "2pt" }}>
                                 {data.hari} {data.pasaran}
                             </td>
                         </tr>
                         <tr>
-                            <td style={{ paddingBottom: "4pt" }}>Tanggal</td>
-                            <td style={{ paddingBottom: "4pt" }}>:</td>
-                            <td style={{ paddingBottom: "4pt" }}>{formatTanggal(data.tanggal)}</td>
+                            <td style={{ paddingBottom: "2pt" }}>Tanggal</td>
+                            <td style={{ paddingBottom: "2pt" }}>:</td>
+                            <td style={{ paddingBottom: "2pt" }}>{formatTanggal(data.tanggal)}</td>
                         </tr>
                         <tr>
-                            <td style={{ paddingBottom: "4pt" }}>Wanci</td>
-                            <td style={{ paddingBottom: "4pt" }}>:</td>
-                            <td style={{ paddingBottom: "4pt" }}>Tabuh {data.jam || "--:--"} WIB</td>
+                            <td style={{ paddingBottom: "2pt" }}>Wanci</td>
+                            <td style={{ paddingBottom: "2pt" }}>:</td>
+                            <td style={{ paddingBottom: "2pt" }}>Tabuh {data.jam || "--:--"} WIB</td>
                         </tr>
                         <tr>
-                            <td style={{ verticalAlign: "top", paddingTop: "2pt", paddingBottom: "4pt" }}>Wonten ing</td>
-                            <td style={{ verticalAlign: "top", paddingTop: "2pt", paddingBottom: "4pt" }}>:</td>
-                            <td style={{ verticalAlign: "top", paddingTop: "2pt", paddingBottom: "4pt", lineHeight: "1.5" }}>
+                            <td style={{ verticalAlign: "top", paddingTop: "2pt", paddingBottom: "2pt" }}>Wonten ing</td>
+                            <td style={{ verticalAlign: "top", paddingTop: "2pt", paddingBottom: "2pt" }}>:</td>
+                            <td style={{ verticalAlign: "top", paddingTop: "2pt", paddingBottom: "2pt", lineHeight: "1.3" }}>
                                 {data.lokasiDuka || "............."}
                             </td>
                         </tr>
@@ -155,31 +155,31 @@ export default function TemplateKlasik2({ data, url }: Props) {
             </div>
 
             {/* ===== PEMAKAMAN ===== */}
-            <div style={{ marginBottom: "24pt" }}>
-                <p style={{ margin: "0 0 6pt 0" }}>Jenazah badhe kasarekaken :</p>
-                <table style={{ marginLeft: "0", fontSize: "12.5pt", width: "100%" }}>
+            <div style={{ marginBottom: "16pt" }}>
+                <p style={{ margin: "0 0 4pt 0" }}>Jenazah badhe kasarekaken :</p>
+                <table style={{ marginLeft: "0", fontSize: "12pt", width: "100%" }}>
                     <tbody>
                         <tr>
-                            <td style={{ width: "80pt", paddingBottom: "4pt" }}>Dinten</td>
-                            <td style={{ width: "16pt", paddingBottom: "4pt" }}>:</td>
-                            <td style={{ paddingBottom: "4pt" }}>
+                            <td style={{ width: "80pt", paddingBottom: "2pt" }}>Dinten</td>
+                            <td style={{ width: "16pt", paddingBottom: "2pt" }}>:</td>
+                            <td style={{ paddingBottom: "2pt" }}>
                                 {data.hariMakam} {data.pasaranMakam}
                             </td>
                         </tr>
                         <tr>
-                            <td style={{ paddingBottom: "4pt" }}>Tanggal</td>
-                            <td style={{ paddingBottom: "4pt" }}>:</td>
-                            <td style={{ paddingBottom: "4pt" }}>{formatTanggal(data.tanggalMakam)}</td>
+                            <td style={{ paddingBottom: "2pt" }}>Tanggal</td>
+                            <td style={{ paddingBottom: "2pt" }}>:</td>
+                            <td style={{ paddingBottom: "2pt" }}>{formatTanggal(data.tanggalMakam)}</td>
                         </tr>
                         <tr>
-                            <td style={{ paddingBottom: "4pt" }}>Wanci</td>
-                            <td style={{ paddingBottom: "4pt" }}>:</td>
-                            <td style={{ paddingBottom: "4pt" }}>Tabuh {data.jamMakam || "--:--"} WIB</td>
+                            <td style={{ paddingBottom: "2pt" }}>Wanci</td>
+                            <td style={{ paddingBottom: "2pt" }}>:</td>
+                            <td style={{ paddingBottom: "2pt" }}>Tabuh {data.jamMakam || "--:--"} WIB</td>
                         </tr>
                         <tr>
                             <td style={{ verticalAlign: "top", paddingTop: "2pt" }}>Wonten</td>
                             <td style={{ verticalAlign: "top", paddingTop: "2pt" }}>:</td>
-                            <td style={{ verticalAlign: "top", paddingTop: "2pt" }}>
+                            <td style={{ verticalAlign: "top", paddingTop: "2pt", lineHeight: "1.3" }}>
                                 {data.lokasiMakam || "............."}
                             </td>
                         </tr>
@@ -188,30 +188,30 @@ export default function TemplateKlasik2({ data, url }: Props) {
             </div>
 
             {/* ===== PARAGRAF PENUTUP ===== */}
-            <p style={{ margin: "0 0 24pt 0", textAlign: "justify", lineHeight: "1.5" }}>
+            <p style={{ margin: "0 0 16pt 0", textAlign: "justify", lineHeight: "1.4" }}>
                 Saking sedaya keluarga duka ngantu-antu kerawuhan panjenengan sami saperlu paring pakurmatan ingkang pungkasan dateng almarhum. Mekaten pawartos lelayumenika kula aturaken, mugi andadosna ing pamriksa.
             </p>
 
             {/* ===== SALAM PENUTUP ===== */}
-            <div style={{ textAlign: "center", marginBottom: "24pt", fontWeight: "bold" }}>
+            <div style={{ textAlign: "center", marginBottom: "16pt", fontWeight: "bold" }}>
                 Wassalamu&apos;alaikum Wr. Wb.
             </div>
 
             {/* ===== DAFTAR KELUARGA ===== */}
             <div style={{ marginTop: "0" }}>
-                <p style={{ margin: "0 0 8pt 0" }}>Ingkang nandang dukito :</p>
+                <p style={{ margin: "0 0 6pt 0" }}>Ingkang nandang dukito :</p>
                 {data.keluarga && data.keluarga.length > 0 ? (
-                    <table style={{ fontSize: "12.5pt", width: "100%", marginLeft: "20pt" }}>
+                    <table style={{ fontSize: "12pt", width: "100%", marginLeft: "20pt" }}>
                         <tbody>
                             {data.keluarga.map((k, i) => (
                                 <tr key={i}>
-                                    <td style={{ width: "20pt", verticalAlign: "top", paddingBottom: "4pt" }}>
+                                    <td style={{ width: "20pt", verticalAlign: "top", paddingBottom: "2pt" }}>
                                         {i + 1}.
                                     </td>
-                                    <td style={{ verticalAlign: "top", paddingBottom: "4pt", width: "200pt" }}>
+                                    <td style={{ verticalAlign: "top", paddingBottom: "2pt", width: "200pt" }}>
                                         {typeof k === "string" ? k : k.nama}
                                     </td>
-                                    <td style={{ verticalAlign: "top", paddingBottom: "4pt" }}>
+                                    <td style={{ verticalAlign: "top", paddingBottom: "2pt" }}>
                                         {typeof k !== "string" && k.hubungan && `(${k.hubungan})`}
                                     </td>
                                 </tr>
