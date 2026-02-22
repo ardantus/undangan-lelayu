@@ -3,15 +3,16 @@ import { getUndangan } from "@/lib/storage";
 import ViewClient from "./ViewClient";
 
 interface Props {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export default async function ViewPage({ params }: Props) {
-  const data = await getUndangan(params.id);
+  const { id } = await params;
+  const data = await getUndangan(id);
   if (!data) notFound();
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? "http://localhost:3000";
-  const url = `${baseUrl}/v/${params.id}`;
+  const url = `${baseUrl}/v/${id}`;
 
   return <ViewClient data={data} url={url} />;
 }
