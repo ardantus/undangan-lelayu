@@ -26,7 +26,7 @@ export default function TemplateSimpel({ data, url }: Props) {
             style={{
                 width: "210mm",
                 height: "297mm",
-                padding: "20mm 20mm",
+                padding: "10mm 20mm 20mm 20mm",
                 boxSizing: "border-box",
                 fontFamily: "'Times New Roman', Times, serif",
                 fontSize: "12pt",
