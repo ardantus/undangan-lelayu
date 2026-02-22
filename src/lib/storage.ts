@@ -24,8 +24,9 @@ export async function saveUndangan(data: UndanganData): Promise<void> {
       throw new Error("BLOB_READ_WRITE_TOKEN environment variable is not set");
     }
     await put(`undangan/${data.id}.json`, json, {
-      access: "public",
       contentType: "application/json",
+      // @ts-ignore
+      access: "public",
     });
   }
 }
